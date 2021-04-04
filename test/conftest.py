@@ -5,12 +5,7 @@ from orator.migrations import DatabaseMigrationRepository, Migrator
 
 @pytest.fixture(autouse=True)
 def setup_database():
-    DATABASES = {
-        "sqlite": {
-            "driver": "sqlite",
-            "database": "test.db"
-        }
-    }
+    DATABASES = {"sqlite": {"driver": "sqlite", "database": "test.db"}}
 
     db = DatabaseManager(DATABASES)
     Schema(db)

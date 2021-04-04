@@ -1,9 +1,6 @@
 import graphene
 
-from src.serializers import (
-    PostGrapheneInputModel,
-    PostGrapheneModel,
-)
+from src.serializers import PostGrapheneInputModel, PostGrapheneModel
 from models.post import Post
 from models.user import User
 

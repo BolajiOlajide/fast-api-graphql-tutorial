@@ -7,8 +7,11 @@ from src.schema import Query, Mutation
 
 app = FastAPI()
 
-app.add_route('/graphql', GraphQLApp(schema=graphene.Schema(query=Query, mutation=Mutation)))
+app.add_route(
+    "/graphql", GraphQLApp(schema=graphene.Schema(query=Query, mutation=Mutation))
+)
 
-@app.get('/')
+
+@app.get("/")
 def ping():
-    return {'ping': 'pong'}
+    return {"ping": "pong"}

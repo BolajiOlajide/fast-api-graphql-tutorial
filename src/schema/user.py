@@ -1,9 +1,6 @@
 import graphene
 
-from src.serializers import (
-    UserGrapheneInputModel,
-    UserGrapheneModel,
-)
+from src.serializers import UserGrapheneInputModel, UserGrapheneModel
 from models.user import User
 
 

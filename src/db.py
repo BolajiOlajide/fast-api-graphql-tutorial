@@ -13,7 +13,7 @@ config = {
         "user": os.getenv("DB_USER"),
         "password": os.getenv("DB_PASSWORD"),
         "prefix": "",
-        "port": 5432
+        "port": 5432,
     }
 }
 

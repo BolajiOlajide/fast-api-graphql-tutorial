@@ -1,12 +1,10 @@
 import graphene
 
-from src.serializers import (
-    CommentGrapheneInputModel,
-    CommentGrapheneModel,
-)
+from src.serializers import CommentGrapheneInputModel, CommentGrapheneModel
 from models.comment import Comment
 from models.post import Post
 from models.user import User
+
 
 class CreateComment(graphene.Mutation):
     class Arguments:

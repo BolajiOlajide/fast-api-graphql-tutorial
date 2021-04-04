@@ -8,13 +8,15 @@ from models.user import User
 
 
 class Query(graphene.ObjectType):
-    say_hello = graphene.String(name=graphene.String(default_value='Hello World!'))
+    say_hello = graphene.String(name=graphene.String(default_value="Hello World!"))
     list_users = graphene.List(UserGrapheneModel)
-    get_single_user = graphene.Field(UserGrapheneModel, user_id=graphene.NonNull(graphene.Int))
+    get_single_user = graphene.Field(
+        UserGrapheneModel, user_id=graphene.NonNull(graphene.Int)
+    )
 
     @staticmethod
     def resolve_say_hello(parent, info, name):
-        return f'Hello {name}'
+        return f"Hello {name}"
 
     @staticmethod
     def resolve_list_users(parent, info):
