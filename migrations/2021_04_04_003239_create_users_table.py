@@ -9,6 +9,10 @@ class CreateUsersTable(Migration):
         """
         with self.schema.create('users') as table:
             table.increments('id')
+            table.string('name')
+            table.text('address')
+            table.string('phone_number', 11)
+            table.enum('sex', ['male', 'female'])
             table.timestamps()
 
     def down(self):
