@@ -11,6 +11,7 @@ orator = "*"
 python-dotenv = "*"
 graphene = "*"
 graphene-pydantic = "==0.1.0"
+pytest = "*"
 
 [dev-packages]
 black = "==18.9b0"
