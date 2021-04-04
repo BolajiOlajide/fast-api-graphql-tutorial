@@ -1,3 +1,5 @@
+import os
+
 from orator import DatabaseManager, Schema, Model
 from dotenv import load_dotenv
 
@@ -10,7 +12,7 @@ DATABASES = {
         "database": os.getenv("DB_NAME"),
         "user": os.getenv("DB_USER"),
         "password": os.getenv("DB_PASSWORD"),
-        "prefix": "fagt_",
+        "prefix": "",
         "port": 5432
     }
 }

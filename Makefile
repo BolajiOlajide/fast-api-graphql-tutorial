@@ -14,3 +14,6 @@ ifeq ($(NAME),)
 else
 	orator make:model $(NAME) -m
 endif
+
+migrate:
+	orator migrate -c src/db.py
