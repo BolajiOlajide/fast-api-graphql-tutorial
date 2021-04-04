@@ -29,3 +29,6 @@ rollback:
 
 rollback_all:
 	orator migrate:reset
+
+run_test:
+	python -m pytest -s test
