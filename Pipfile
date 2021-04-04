@@ -9,8 +9,10 @@ uvicorn = "*"
 psycopg2-binary = "*"
 orator = "*"
 python-dotenv = "*"
+graphene = "*"
 
 [dev-packages]
+black = "==18.9b0"
 
 [requires]
 python_version = "3.8"
