@@ -1,6 +1,13 @@
 import pytest
+import graphene
 from orator import DatabaseManager, Model, Schema
 from orator.migrations import DatabaseMigrationRepository, Migrator
+from graphene.test import Client
+
+from src.schema import Query, Mutation
+from models.comment import Comment
+from models.post import Post
+from models.user import User
 
 
 @pytest.fixture(autouse=True)
@@ -20,3 +27,40 @@ def setup_database():
 
     migrator.reset("migrations")
     migrator.run("migrations")
+
+@pytest.fixture(scope="module")
+def client():
+    client = Client(schema=graphene.Schema(query=Query, mutation=Mutation))
+    return client
+
+@pytest.fixture(scope="function")
+def user():
+    user = User()
+    user.name = "John Doe"
+    user.address = "United States of Nigeria"
+    user.phone_number = 123456789
+    user.sex = "male"
+    user.save()
+
+    return user
+
+
+@pytest.fixture(scope="function")
+def post(user):
+    post = Post()
+    post.title = "Test Title"
+    post.body = "this is the post body and can be as long as possible"
+
+    user.posts().save(post)
+    return post
+
+
+@pytest.fixture(scope="function")
+def comment(user, post):
+    comment = Comments()
+    comment.body = "This is a comment body"
+
+    user.comments().save(comment)
+    post.comments().save(comment)
+
+    return comment
