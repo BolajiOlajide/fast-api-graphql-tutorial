@@ -19,7 +19,7 @@ class CreateComment(graphene.Mutation):
         user = User.find_or_fail(comment_details.user_id)
         post = Post.find_or_fail(comment_details.post_id)
 
-        comment = Comments()
+        comment = Comment()
         comment.body = comment_details.body
 
         user.comments().save(comment)

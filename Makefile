@@ -10,10 +10,22 @@ start:
 model_create:
 ifeq ($(NAME),)
 	@ echo $(ORATOR_ERROR_MESSAGE)
-	exit 1
 else
 	orator make:model $(NAME) -m
 endif
 
 migrate:
 	orator migrate -c src/db.py
+
+migration_create:
+ifeq ($(NAME),)
+	@ echo $(ORATOR_ERROR_MESSAGE)
+else
+	orator make:migration $(NAME)
+endif
+
+rollback:
+	orator migrate:rollback
+
+rollback_all:
+	orator migrate:reset
